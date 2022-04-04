@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { ValidateFullName } from '../utils/validators/fullname.validator';
 
 @Component({
   selector: 'app-reactive-form',
@@ -9,16 +10,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 export class ReactiveFormComponent implements OnInit {
 
   contactForm = new FormGroup({
-    fullName: new FormControl(),
+    fullName: new FormControl('', [Validators.required, ValidateFullName]),
   })
-
-  constructor() { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    console.log(this.contactForm.value);
+    console.log(this.contactForm);
   }
 
 }
