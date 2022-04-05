@@ -17,7 +17,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.contactForm);
+    console.log(this.contactForm.get('fullName')?.getError('errorMessage'));
   }
 
 }

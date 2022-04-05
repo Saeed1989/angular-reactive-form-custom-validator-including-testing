@@ -19,9 +19,9 @@
     *ngIf="
       (contactForm.get('fullName')?.dirty ||
         contactForm.get('fullName')?.touched) &&
-      contactForm.get('fullName')?.invalid
+        contactForm.get('fullName')?.getError('errorMessage') as error
     "
   >
-    Please provide your fullName.
+    {{ error }}
   </div>
 </div>
