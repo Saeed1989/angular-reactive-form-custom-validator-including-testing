@@ -4,13 +4,14 @@
       id="fullName"
       name="fullName"
       formControlName="fullName"
-      class="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
+      class="inp-primary"
+      [ngClass]="{ 'err': contactForm.get('fullName')?.getError('errorMessage') }"
       placeholder="firstName lastName"
     />
 
     <button
       type="submit"
-      class="px-8 rounded-r-lg bg-yellow-400 text-gray-800 font-bold p-4 uppercase border-yellow-500 border-t border-b border-r"
+      class="btn-submit"
     >
       Submit
     </button>
