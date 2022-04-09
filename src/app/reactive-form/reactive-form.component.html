@@ -5,7 +5,7 @@
       name="fullName"
       formControlName="fullName"
       class="inp-primary"
-      [ngClass]="{ 'err': contactForm.get('fullName')?.getError('errorMessage') }"
+      [ngClass]="{ 'err': contactForm.get('fullName')?.getError('errorMessage')}"
       placeholder="firstName lastName"
     />
 
@@ -17,12 +17,8 @@
     </button>
   </form>
   <div
-    *ngIf="
-      (contactForm.get('fullName')?.dirty ||
-        contactForm.get('fullName')?.touched) &&
-        contactForm.get('fullName')?.getError('errorMessage') as error
-    "
+    *ngIf="contactForm.get('fullName')?.getError('errorMessage') as err"
   >
-    {{ error }}
+  {{err}}
   </div>
 </div>
