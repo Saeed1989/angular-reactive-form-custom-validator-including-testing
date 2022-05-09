@@ -2,7 +2,7 @@ import { AbstractControl } from '@angular/forms';
 
 export function ValidateFullName(control: AbstractControl) {
   if (!control.dirty && !control.touched) return null;
-  
+
   let length = control.value.split(' ').length;
   let error = null;
 

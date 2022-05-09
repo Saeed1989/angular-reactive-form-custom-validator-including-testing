@@ -5,20 +5,13 @@
       name="fullName"
       formControlName="fullName"
       class="inp-primary"
-      [ngClass]="{ 'err': contactForm.get('fullName')?.getError('errorMessage')}"
+      [ngClass]="{ err: contactForm.get('fullName')?.getError('errorMessage') }"
       placeholder="firstName lastName"
     />
 
-    <button
-      type="submit"
-      class="btn-submit"
-    >
-      Submit
-    </button>
+    <button type="submit" class="btn-submit">Submit</button>
   </form>
-  <div
-    *ngIf="contactForm.get('fullName')?.getError('errorMessage') as err"
-  >
-  {{err}}
+  <div *ngIf="contactForm.get('fullName')?.getError('errorMessage') as err">
+    {{ err }}
   </div>
 </div>
