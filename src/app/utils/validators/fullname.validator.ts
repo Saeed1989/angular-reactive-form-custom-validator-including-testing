@@ -1,4 +1,5 @@
 import { AbstractControl } from '@angular/forms';
+import { ValidationMessages } from 'src/app/core/constants/validataion-messages';
 
 export function ValidateFullName(control: AbstractControl) {
   if (!control.dirty && !control.touched) return null;
@@ -10,23 +11,23 @@ export function ValidateFullName(control: AbstractControl) {
     const values = control.value.split(' ');
     if (values[0].length > 10) {
       error = {
-        errorMessage: 'Length of first name must be less than 10 character',
+        errorMessage: ValidationMessages.FULLNAME_004,
       };
     } else if (values[0].length === 0) {
-      error = { errorMessage: 'Please provide first name' };
+      error = { errorMessage: ValidationMessages.FULLNAME_002 };
     } else if (values[1].length > 10) {
       error = {
-        errorMessage: 'Length of second name must be less than 10 character',
+        errorMessage: ValidationMessages.FULLNAME_005,
       };
     } else if (values[1].length === 0) {
-      error = { errorMessage: 'Please provide second name' };
+      error = { errorMessage: ValidationMessages.FULLNAME_003 };
     }
   } else if (length === 1 && control.value?.length > 0) {
-    error = { errorMessage: 'Please provide second name' };
+    error = { errorMessage: ValidationMessages.FULLNAME_003 };
   } else if (length > 2) {
-    error = { errorMessage: 'Only single space is allowed' };
+    error = { errorMessage: ValidationMessages.FULLNAME_006 };
   } else {
-    error = { errorMessage: 'Please provide full name' };
+    error = { errorMessage: ValidationMessages.FULLNAME_001 };
   }
 
   return error;
